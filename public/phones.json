@@ -1,0 +1,92 @@
+[
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Gulshan-2",
+    "original price": 1199,
+    "years of use": "1 year",
+    "resale price": 809,
+    "model": "Iphone 12 Pro",
+    "brand": "Apple",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  },
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Gulshan-2",
+    "original price": 999,
+    "years of use": "1.5 years",
+    "resale price": 509,
+    "model": "Iphone XR",
+    "brand": "Apple",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  },
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Banani",
+    "original price": 450,
+    "years of use": "",
+    "resale price": 305,
+    "model": "Redmi Note 10",
+    "brand": "Xiaomi",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  },
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Banani",
+    "original price": 509,
+    "years of use": "6 months",
+    "resale price": 308,
+    "model": "Redmi Note 11",
+    "brand": "Xiaomi",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  },
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Gulshan-2",
+    "original price": 500,
+    "years of use": "6 months",
+    "resale price": 400,
+    "model": "Oneplus Nord",
+    "brand": "Oneplus",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  },
+  {
+    "others_info": { "is_todays_pick": false, "is_trending": true },
+
+    "rating": { "number": 4.5, "badge": "Excellent" },
+    "total_sell": 488,
+    "location": "Gulshan-2",
+    "original price": 900,
+    "years of use": "9 months",
+    "resale price": 500,
+    "model": "Oneplus 8 plus",
+    "brand": "Oneplus",
+
+    "image_url": "https://img.freepik.com/free-photo/online-web-design_53876-95309.jpg?size=626&ext=jpg&ga=GA1.2.800180060.1661101819&semt=sph",
+    "details": "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript."
+  }
+]
