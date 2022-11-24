@@ -1,0 +1,14 @@
+[
+    {
+        "brand":"apple",
+        "img":"https://images.unsplash.com/photo-1621768216002-5ac171876625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXBwbGUlMjBsb2dvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+    },
+    {
+        "brand":"xiaomi",
+        "img":"https://images.unsplash.com/photo-1662948099967-820a793a8013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8eGlhb21pJTIwbG9nb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+    },
+    {
+        "brand":"oneplus",
+        "img":"https://images.unsplash.com/photo-1607028377329-eaa762b48941?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8b25lcGx1c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+    }
+]
