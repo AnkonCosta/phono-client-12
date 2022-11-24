@@ -25,7 +25,7 @@ const CategoryCard = () => {
       {<h2>Browse The categories you want.</h2>}
       <div className="grid md:grid-cols-3 gap-6">
         {brands.map((brand) => (
-          <Link to={`/phones/${brand.brand}`} className="card  bg-base-100 shadow-xl">
+          <Link to={`/category/${brand.brand}`} className="card  bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
               <img src={brand.img} alt="brands" className="rounded-xl" />
             </figure>
