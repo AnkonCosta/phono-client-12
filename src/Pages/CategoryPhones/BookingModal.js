@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
 const BookingModal = ({ availablePhone }) => {
@@ -22,6 +23,22 @@ const BookingModal = ({ availablePhone }) => {
       location,
       model: availablePhone.model,
     };
+    fetch(`http://localhost:5000/bookings`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Booking confirmed");
+        } else {
+          toast.error(data.message);
+        }
+      });
   };
   return (
     <>
@@ -58,7 +75,7 @@ const BookingModal = ({ availablePhone }) => {
             <input
               name="price"
               type="text"
-              defaultValue={`$ ${availablePhone?.resale_price}`}
+              defaultValue={availablePhone?.resale_price}
               disabled
               placeholder="Email Address"
               className="input w-full input-bordered"

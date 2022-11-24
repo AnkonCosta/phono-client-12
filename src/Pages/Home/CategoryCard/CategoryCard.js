@@ -30,11 +30,7 @@ const CategoryCard = () => {
               <img src={brand.img} alt="brands" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-              <h2 className="card-title uppercase">{brand.brand}</h2>
-
-              <div className="card-actions">
-                <button className="btn btn-primary">Show Products</button>
-              </div>
+              <h2 className="card-title btn btn-primary uppercase">{brand.brand}</h2>
             </div>
           </Link>
         ))}
