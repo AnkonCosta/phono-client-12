@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
   const {
@@ -10,10 +11,15 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, user } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
 
+  if (token) {
+    navigate("/");
+  }
   const handleSignUp = (data) => {
     setSignUPError("");
     createUser(data.email, data.password)
@@ -26,8 +32,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name,data.email,data.role)
-            navigate("/");
+            saveUser(data.name, data.email, data.role);
           })
           .catch((err) => console.log(err));
       })
@@ -37,8 +42,8 @@ const SignUp = () => {
       });
   };
 
-  const saveUser = (name, email,role) => {
-    const user = { name, email,role };
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -48,7 +53,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setCreatedUserEmail(email);
+        setCreatedUserEmail(email);
       });
   };
 
@@ -121,7 +126,6 @@ const SignUp = () => {
               className="select select-bordered  w-full "
               {...register("role")}
             >
-              
               <option selected>user</option>
               <option>seller</option>
             </select>

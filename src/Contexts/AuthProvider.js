@@ -59,6 +59,7 @@ const googleSignIn=(provider)=>{
     logOut,
     user,
     loading,
+    setLoading,
     googleSignIn
   };
   return (

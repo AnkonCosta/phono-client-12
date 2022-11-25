@@ -5,6 +5,7 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 const BookingModal = ({ availablePhone }) => {
   //   const {model} = availablePhone;
   const { user } = useContext(AuthContext);
+  console.log(user)
 
   const handleBooking = (e) => {
     e.preventDefault();
