@@ -26,6 +26,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
+            saveUser(data.name,data.email,data.role)
             navigate("/");
           })
           .catch((err) => console.log(err));
@@ -33,6 +34,21 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error);
         setSignUPError(error.message);
+      });
+  };
+
+  const saveUser = (name, email,role) => {
+    const user = { name, email,role };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // setCreatedUserEmail(email);
       });
   };
 
@@ -78,6 +94,7 @@ const SignUp = () => {
               {" "}
               <span className="label-text">Password</span>
             </label>
+
             <input
               type="password"
               {...register("password", {
@@ -97,6 +114,17 @@ const SignUp = () => {
             {errors.password && (
               <p className="text-red-500">{errors.password.message}</p>
             )}
+          </div>
+          <div className=" w-full max-w-xs my-4">
+            {" "}
+            <select
+              className="select select-bordered  w-full "
+              {...register("role")}
+            >
+              
+              <option selected>user</option>
+              <option>seller</option>
+            </select>
           </div>
           <input
             className="btn btn-accent w-full mt-4"

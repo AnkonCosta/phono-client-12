@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const Navbar = () => {
-  const {user}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
   const menuItems = (
     <React.Fragment>
       <li>
@@ -18,16 +18,22 @@ const Navbar = () => {
       <li>
         <Link to="/reviews">Reviews</Link>
       </li>
-    {
-      user?.uid ? <>
-        <li>
-        <Link >Log Out</Link>
-      </li>
-      </>:
-      <><li>
-      <Link to="/login">Login</Link>
-    </li></>
-    }
+      {user?.uid ? (
+        <>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link onClick={logOut}>Log Out</Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </React.Fragment>
   );
 
@@ -58,6 +64,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
+
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           PHONO
         </Link>
@@ -65,6 +72,26 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
+      <label
+        htmlFor="dashboard-drawer"
+        tabIndex={2}
+        className="btn btn-ghost  lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
     </div>
   );
 };
