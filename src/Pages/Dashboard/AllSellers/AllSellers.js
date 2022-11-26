@@ -3,7 +3,7 @@ import React from "react";
 import toast from "react-hot-toast";
 
 const AllSellers = () => {
-  const { data: users = [],refetch } = useQuery({
+  const { data: users = [], refetch,isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/allsellers`);
@@ -15,19 +15,20 @@ const AllSellers = () => {
   const handleVerify = (id) => {
     fetch(`http://localhost:5000/users/admin/${id}`, {
       method: "PUT",
-      headers:{
-        authorization:`bearer ${localStorage.getItem('accessToken')}`
-      }
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.modifiedCount>0){
-            toast.success('Verified Successfully.')
-            refetch()
+        if (data.modifiedCount > 0) {
+          toast.success("Verified Successfully.");
+          refetch();
         }
         console.log(data);
       });
   };
+
 
   return (
     <div>
@@ -55,10 +56,7 @@ const AllSellers = () => {
                     {user?.verified ? (
                       <>
                         {" "}
-                        <button
-                         
-                          className="btn btn-success text-yellow-50 btn-sm"
-                        >
+                        <button className="btn btn-success text-yellow-50 btn-sm">
                           Verified
                         </button>
                       </>
@@ -74,7 +72,7 @@ const AllSellers = () => {
                       </>
                     )}
                   </td>
-                  <td>
+                  <td >
                     <button className="btn btn-circle btn-sm btn-primary btn-outline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

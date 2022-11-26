@@ -10,7 +10,7 @@ const CategoryPhones = () => {
   return (
     <div className="w-10/12 mx-auto ">
       <h2 className="text-3xl fw-bold">
-        Get the best {phones[1].brand} second hand phones
+        Get the best second hand phones
       </h2>
 
       <div className="my-10 grid grid-cols-3 gap-6">

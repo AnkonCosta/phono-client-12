@@ -11,14 +11,13 @@ const PhoneCards = ({ phone,setAvailablePhone }) => {
     verified,
     seller_name,
     model,
-    brand,
     image_url,
   } = phone;
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 relative shadow-xl">
       <figure>
-        <img src={image_url} alt="Shoes" />
+        <img width={'200px'} src={image_url} alt="phones" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
@@ -60,8 +59,8 @@ const PhoneCards = ({ phone,setAvailablePhone }) => {
             Book
           </div>
         </div>
-        <label onClick={()=>setAvailablePhone(phone)} htmlFor="booking-modal" className="btn">
-          Book
+        <label onClick={()=>setAvailablePhone(phone)} htmlFor="booking-modal" className="btn ">
+          Order
         </label>
       </div>
     </div>
