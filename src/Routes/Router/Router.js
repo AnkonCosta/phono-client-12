@@ -13,13 +13,16 @@ import AddPhones from "../../Pages/Dashboard/AddPhones/AddPhones";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import AdminRoute from "../AdminRoute";
 import Blog from "../../Pages/Blog/Blog";
-import SellerRoute from "../SellerRoute";
 import SellerProducts from "../../Pages/Dashboard/SellerProducts/SellerProducts";
+import SellerRoute from "../SellerRoute";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <DisplayError></DisplayError>,
     children: [
       {
         path: "/",
@@ -53,6 +56,7 @@ const router = createBrowserRouter([
         <DashboardLayout></DashboardLayout>
       </PrivateRoute>
     ),
+    errorElement: <DisplayError></DisplayError>,
     children: [
       {
         path: "/dashboard",
@@ -77,16 +81,25 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add",
         element: (
-          
+          <SellerRoute>
+            {" "}
             <AddPhones></AddPhones>
+          </SellerRoute>
         ),
       },
       {
         path: "/dashboard/seller-products",
         element: (
-          
+          <SellerRoute>
             <SellerProducts></SellerProducts>
+          </SellerRoute>
         ),
+      },
+      {
+        path: "/dashboard/payment/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/bookings/${params.id}`),
+        element: <Payment></Payment>,
       },
     ],
   },

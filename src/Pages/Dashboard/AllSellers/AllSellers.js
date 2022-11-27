@@ -1,9 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import toast from "react-hot-toast";
+import { FaCheckCircle } from "react-icons/fa";
 
 const AllSellers = () => {
-  const { data: users = [], refetch,isLoading } = useQuery({
+  const {
+    data: users = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/allsellers`);
@@ -29,6 +34,21 @@ const AllSellers = () => {
       });
   };
 
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if (proceed) {
+      fetch(`http://localhost:5000/allsellers/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            toast.success("Deleted Successfully");
+            refetch();
+          }
+        });
+    }
+  };
 
   return (
     <div>
@@ -56,9 +76,9 @@ const AllSellers = () => {
                     {user?.verified ? (
                       <>
                         {" "}
-                        <button className="btn btn-success text-yellow-50 btn-sm">
-                          Verified
-                        </button>
+                        <span  className="text-blue-500 tooltip mx-1" data-tip="Verified">
+                          <FaCheckCircle />
+                        </span>
                       </>
                     ) : (
                       <>
@@ -72,8 +92,11 @@ const AllSellers = () => {
                       </>
                     )}
                   </td>
-                  <td >
-                    <button className="btn btn-circle btn-sm btn-primary btn-outline">
+                  <td>
+                    <button
+                      onClick={() => handleDelete(user?._id)}
+                      className="btn btn-circle btn-sm btn-primary btn-outline"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"

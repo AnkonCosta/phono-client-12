@@ -219,7 +219,7 @@ const AddPhones = () => {
         </div>
         <input
           className="btn btn-accent w-full mt-4"
-          value="Add Doctor"
+          value="Add Phone"
           type="submit"
         />
       </form>

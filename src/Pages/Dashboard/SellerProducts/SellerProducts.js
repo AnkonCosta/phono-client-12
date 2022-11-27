@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const SellerProducts = () => {
@@ -18,6 +19,24 @@ const SellerProducts = () => {
       return data;
     },
   });
+
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if (proceed) {
+      fetch(`http://localhost:5000/phones/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            toast.success("Deleted Successfully");
+            refetch();
+          }
+        });
+    }
+  };
+
+
   return (
     <div>
       <div className="overflow-x-auto w-full">
@@ -31,7 +50,7 @@ const SellerProducts = () => {
                 </label>
               </th>
               <th>Name</th>
-              <th>Status</th>
+              <th>Price</th>
               <th>Status</th>
               <th>Delete</th>
             </tr>
@@ -63,14 +82,14 @@ const SellerProducts = () => {
                     </div>
                   </div>
                 </td>
-                <td>Purple</td>
+                <td>$ {phone?.resale_price}</td>
                 <td>
                 <button className="btn btn-primary text-yellow-50 btn-sm">
                           Available
                         </button>
                 </td>
                 <td>
-                    <button className="btn btn-circle btn-sm btn-primary btn-outline">
+                    <button onClick={()=>handleDelete(phone?._id)} className="btn btn-circle btn-sm btn-primary btn-outline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
