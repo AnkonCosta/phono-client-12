@@ -30,7 +30,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h3 className="text-2xl ">All Users</h3>
+      <h3 className="text-2xl ">All Buyers</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* <!-- head --> */}

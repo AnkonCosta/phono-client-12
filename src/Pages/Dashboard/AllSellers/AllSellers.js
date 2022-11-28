@@ -52,7 +52,7 @@ const AllSellers = () => {
 
   return (
     <div>
-      <h3 className="text-2xl ">All Users</h3>
+      <h3 className="text-2xl ">All Sellers</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           {/* <!-- head --> */}
@@ -76,9 +76,9 @@ const AllSellers = () => {
                     {user?.verified ? (
                       <>
                         {" "}
-                        <span  className="text-blue-500 tooltip mx-1" data-tip="Verified">
-                          <FaCheckCircle />
-                        </span>
+                        <button className="btn btn-primary btn-sm">
+                          Verified
+                        </button>
                       </>
                     ) : (
                       <>

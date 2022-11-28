@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const SellerProducts = () => {
   const { user } = useContext(AuthContext);
+  const [singlePhone, setSinglePhone] = useState({});
   const {
     data: phones = [],
     refetch,
@@ -36,6 +37,19 @@ const SellerProducts = () => {
     }
   };
 
+  const handleAdvertise = (singlePhone) => {
+    fetch(`http://localhost:5000/ads`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(singlePhone),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+       console.log(data)
+      });
+  };
 
   return (
     <div>
@@ -52,13 +66,14 @@ const SellerProducts = () => {
               <th>Name</th>
               <th>Price</th>
               <th>Status</th>
+              <th>Advertise</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
             {phones.map((phone) => (
-              <tr>
+              <tr key={phone._id}>
                 <th>
                   <label>
                     <input type="checkbox" className="checkbox" />
@@ -84,28 +99,61 @@ const SellerProducts = () => {
                 </td>
                 <td>$ {phone?.resale_price}</td>
                 <td>
-                <button className="btn btn-primary text-yellow-50 btn-sm">
-                          Available
-                        </button>
+                  {phone?.sold ? (
+                    <>
+                      <button className="btn btn-primary text-yellow-50 btn-sm">
+                        Sold
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="btn btn-primary text-yellow-50 btn-sm">
+                        Available
+                      </button>
+                    </>
+                  )}
                 </td>
                 <td>
-                    <button onClick={()=>handleDelete(phone?._id)} className="btn btn-circle btn-sm btn-primary btn-outline">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                  {phone?.sold ? (
+                    <>
+                      {" "}
+                      <button className="btn btn-outline btn-primary text-yellow-50 btn-sm">
+                        Unavailable
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <button
+                        onClick={() => handleAdvertise(phone)}
+                        className="btn btn-outline btn-primary text-yellow-50 btn-sm"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </td>
+                        Advertise
+                      </button>
+                    </>
+                  )}
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(setSinglePhone(phone))}
+                    className="btn btn-circle btn-sm btn-primary btn-outline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

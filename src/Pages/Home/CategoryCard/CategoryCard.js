@@ -22,7 +22,7 @@ const CategoryCard = () => {
 
   return (
     <div className="w-10/12 mx-auto my-12">
-      {<h2>Browse The categories you want.</h2>}
+      {<h2 className="text-2xl">Browse The categories you want.</h2>}
       <div className="grid md:grid-cols-3 gap-6">
         {brands.map((brand) => (
           <Link to={`/category/${brand.brand}`} className="card  bg-base-100 shadow-xl">

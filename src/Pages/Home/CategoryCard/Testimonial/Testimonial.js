@@ -1,9 +1,18 @@
 import React from "react";
-import './Testimonial.css'
+import "./Testimonial.css";
 
 const Testimonial = () => {
   return (
-    <div>
+    <div style={{backgroundColor:'#EDF2F8'}} className='py-10'>
+      <div style={{backgroundColor:'#EDF2F8',margin:'0 auto'}} class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+        <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-black">
+          Our Customer Reviews
+        </h2>
+        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+          We use an agile approach to test assumptions and connect with the
+          needs of your audience early and often.
+        </p>
+      </div>
       <div class="outerdiv">
         <div class="innerdiv">
           <div class="div1 eachdiv">
@@ -142,7 +151,6 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

@@ -80,7 +80,7 @@ const MyOrders = () => {
                       </Link>
                     )}
                     {booking?.price && booking.paid && (
-                      <btn className="btn btn-xs btn-primary">Paid</btn>
+                      <btn className="btn btn-xs btn-success">Paid</btn>
                     )}
                   </td>
                   <td onClick={() => handleDelete(booking?._id)}>

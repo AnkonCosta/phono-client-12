@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Contexts/AuthProvider";
 
-const BookingModal = ({ availablePhone }) => {
+const BookingModal = ({ availablePhone,setAvailablePhone }) => {
   //   const {model} = availablePhone;
   const { user } = useContext(AuthContext);
   console.log(user)
@@ -15,6 +15,7 @@ const BookingModal = ({ availablePhone }) => {
     const price = form.price.value;
     const phone = form.phone.value;
     const location = form.location.value;
+    const phoneId=availablePhone._id
     // [3, 4, 5].map((value, i) => console.log(value))
     const booking = {
       name,
@@ -22,7 +23,7 @@ const BookingModal = ({ availablePhone }) => {
       price,
       phone,
       location,
-      model: availablePhone.model,
+      model: availablePhone.model,phoneId
     };
     fetch(`http://localhost:5000/bookings`, {
       method: "POST",
@@ -35,6 +36,7 @@ const BookingModal = ({ availablePhone }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
+          setAvailablePhone(null)
           toast.success("Booking confirmed");
         } else {
           toast.error(data.message);

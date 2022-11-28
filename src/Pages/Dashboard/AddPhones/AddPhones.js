@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const AddPhones = () => {
@@ -10,6 +11,7 @@ const AddPhones = () => {
     formState: { errors },
   } = useForm();
   const { user } = useContext(AuthContext);
+  const navigate=useNavigate()
 
   const imgHostKey = process.env.REACT_APP_IMGBB_KEY;
 
@@ -55,6 +57,7 @@ const AddPhones = () => {
           .then(data=>{
             console.log(data)
             toast.success(`Phone added successfully`);
+            navigate('/dashboard')
           })
         }
       });
