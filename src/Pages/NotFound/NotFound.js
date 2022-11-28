@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UseTitle from "../../Hooks/useTitle";
 
 const NotFound = () => {
+  UseTitle('Not Found')
   return (
     // <!-- component -->
     <section>

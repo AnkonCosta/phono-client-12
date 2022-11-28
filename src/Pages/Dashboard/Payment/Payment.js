@@ -4,11 +4,13 @@ import React from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
 import Loading from "../../Shared/Loading/Loading";
+import UseTitle from "../../../Hooks/useTitle";
 
 const stripePromise = loadStripe(process.env.REACT_APP_PK_KEY);
 console.log(stripePromise);
 
 const Payment = () => {
+  UseTitle('Payment')
   const booking = useLoaderData();
   const navigation = useNavigation();
   if(navigation.state==='loading'){

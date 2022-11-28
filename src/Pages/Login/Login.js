@@ -3,9 +3,11 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/useTitle";
 import useToken from "../../Hooks/useToken";
 
 const Login = () => {
+  UseTitle('Login')
   const {
     register,
     formState: { errors },

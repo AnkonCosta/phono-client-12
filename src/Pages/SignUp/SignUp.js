@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import UseTitle from "../../Hooks/useTitle";
 import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
+  UseTitle('SignUp')
   const {
     register,
     handleSubmit,

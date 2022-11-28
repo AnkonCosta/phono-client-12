@@ -3,8 +3,10 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import UseTitle from "../../../Hooks/useTitle";
 
 const MyOrders = () => {
+  UseTitle('MyOrders')
   const { user, setLoading } = useContext(AuthContext);
   console.log(user);
   const url = `https://assignment-12-server-ten.vercel.app/bookings?email=${user?.email}`;

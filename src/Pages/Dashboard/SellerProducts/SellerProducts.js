@@ -2,8 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import UseTitle from "../../../Hooks/useTitle";
 
 const SellerProducts = () => {
+  UseTitle('My Products')
   const { user } = useContext(AuthContext);
   const [singlePhone, setSinglePhone] = useState({});
   const {
@@ -135,7 +137,7 @@ const SellerProducts = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(setSinglePhone(phone))}
+                    onClick={() => handleDelete(phone?._id)}
                     className="btn btn-circle btn-sm btn-primary btn-outline"
                   >
                     <svg

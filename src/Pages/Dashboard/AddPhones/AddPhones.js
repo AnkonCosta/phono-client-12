@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import UseTitle from "../../../Hooks/useTitle";
 
 const AddPhones = () => {
+  UseTitle('Add Phones')
   const {
     register,
     handleSubmit,
