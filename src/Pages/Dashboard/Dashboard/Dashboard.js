@@ -3,7 +3,9 @@ import React from 'react';
 const Dashboard = () => {
     return (
         <div>
-            <h3>Coming soon.sdkljsdkl</h3>
+            <div className="flex justify-center h-96 items-center">
+        <button className="btn btn-outline btn-primary">Welcome to your dashboard.</button>
+    </div>
         </div>
     );
 };

@@ -17,6 +17,7 @@ import SellerProducts from "../../Pages/Dashboard/SellerProducts/SellerProducts"
 import SellerRoute from "../SellerRoute";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -59,8 +60,12 @@ const router = createBrowserRouter([
     errorElement: <DisplayError></DisplayError>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/myorders",
         element: <MyOrders></MyOrders>,
+      },
+      {
+        path: "/dashboard/",
+        element: <Dashboard></Dashboard>,
       },
       {
         path: "/dashboard/all-buyers",
