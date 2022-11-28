@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading/Loading";
 const Advertise = () => {
 //   const [phones, setPhones,] = useState({});
 //   useEffect(() => {
-//     fetch(`http://localhost:5000/ads`)
+//     fetch(`https://assignment-12-server-ten.vercel.app/ads`)
 //       .then((res) => res.json())
 //       .then((data) => {
 //         console.log(data);
@@ -22,7 +22,7 @@ const Advertise = () => {
     queryKey: ["ads"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/ads`
+        `https://assignment-12-server-ten.vercel.app/ads`
       );
       const data = await res.json();
       return data;

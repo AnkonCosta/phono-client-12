@@ -31,9 +31,9 @@ const router = createBrowserRouter([
       {
         path: "/category/:brand",
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/phones/${params.brand}`);
+          return fetch(`https://assignment-12-server-ten.vercel.app/phones/${params.brand}`);
         },
-        element: <CategoryPhones></CategoryPhones>,
+        element: <PrivateRoute><CategoryPhones></CategoryPhones></PrivateRoute>,
       },
       {
         path: "/signup",
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://assignment-12-server-ten.vercel.app/bookings/${params.id}`),
         element: <Payment></Payment>,
       },
     ],

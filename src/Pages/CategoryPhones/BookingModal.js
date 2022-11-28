@@ -25,7 +25,7 @@ const BookingModal = ({ availablePhone,setAvailablePhone }) => {
       location,
       model: availablePhone.model,phoneId
     };
-    fetch(`http://localhost:5000/bookings`, {
+    fetch(`https://assignment-12-server-ten.vercel.app/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

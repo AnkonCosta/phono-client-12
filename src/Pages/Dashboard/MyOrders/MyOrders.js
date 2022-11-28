@@ -7,7 +7,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider";
 const MyOrders = () => {
   const { user, setLoading } = useContext(AuthContext);
   console.log(user);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://assignment-12-server-ten.vercel.app/bookings?email=${user?.email}`;
 
   const {
     data: bookings = [],
@@ -29,7 +29,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/bookings/${id}`, {
+      fetch(`https://assignment-12-server-ten.vercel.app/bookings/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

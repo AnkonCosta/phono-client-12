@@ -6,7 +6,7 @@ const CategoryCard = () => {
   //   const { data: phones = [],} = useQuery({
   //     queryKey: ["phones"],
   //     queryFn: async () => {
-  //       const res = await fetch(`http://localhost:5000/phones`);
+  //       const res = await fetch(`https://assignment-12-server-ten.vercel.app/phones`);
   //       const data = await res.json();
   //       return data;
   //     },
@@ -14,7 +14,7 @@ const CategoryCard = () => {
   const { data: brands = [] } = useQuery({
     queryKey: ["brands"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/brands`);
+      const res = await fetch(`https://assignment-12-server-ten.vercel.app/brands`);
       const data = await res.json();
       return data;
     },

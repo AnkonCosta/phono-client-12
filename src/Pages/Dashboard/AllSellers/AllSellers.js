@@ -11,14 +11,14 @@ const AllSellers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allsellers`);
+      const res = await fetch(`https://assignment-12-server-ten.vercel.app/allsellers`);
       const data = await res.json();
       return data;
     },
   });
 
   const handleVerify = (id) => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://assignment-12-server-ten.vercel.app/users/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +37,7 @@ const AllSellers = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/allsellers/${id}`, {
+      fetch(`https://assignment-12-server-ten.vercel.app/allsellers/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

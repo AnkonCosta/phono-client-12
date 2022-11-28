@@ -45,7 +45,7 @@ const AddPhones = () => {
           };
           console.log(phoneInfo);
           // save phone info to database
-          fetch(`http://localhost:5000/phones`,{
+          fetch(`https://assignment-12-server-ten.vercel.app/phones`,{
             method:'POST',
             headers:{
               'content-type':'application/json',

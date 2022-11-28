@@ -55,9 +55,7 @@ const PhoneCards = ({ phone,setAvailablePhone }) => {
               </span>
             )}{" "}
           </div>
-          <div htmlFor="booking-modal" className="badge badge-outline">
-            Book
-          </div>
+         
         </div>
         <label onClick={()=>setAvailablePhone(phone)} htmlFor="booking-modal" className="btn ">
           Order

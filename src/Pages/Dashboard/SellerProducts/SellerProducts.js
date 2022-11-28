@@ -14,7 +14,7 @@ const SellerProducts = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/phones?email=${user?.email}`
+        `https://assignment-12-server-ten.vercel.app/phones?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -24,7 +24,7 @@ const SellerProducts = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
-      fetch(`http://localhost:5000/phones/${id}`, {
+      fetch(`https://assignment-12-server-ten.vercel.app/phones/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,7 +38,7 @@ const SellerProducts = () => {
   };
 
   const handleAdvertise = (singlePhone) => {
-    fetch(`http://localhost:5000/ads`, {
+    fetch(`https://assignment-12-server-ten.vercel.app/ads`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
