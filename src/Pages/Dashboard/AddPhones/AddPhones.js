@@ -59,7 +59,7 @@ const AddPhones = () => {
           .then(data=>{
             console.log(data)
             toast.success(`Phone added successfully`);
-            navigate('/dashboard')
+            navigate('/dashboard/seller-products')
           })
         }
       });
